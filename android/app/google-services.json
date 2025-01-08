@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "377472580503",
+    "project_id": "career-guild-b7571",
+    "storage_bucket": "career-guild-b7571.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:377472580503:android:76ced084a595e760bde2d2",
+        "android_client_info": {
+          "package_name": "com.example.career_guild"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3wMm2GWrwTryqeYy3bdd8SknFf8h-cQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
