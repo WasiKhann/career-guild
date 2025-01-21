@@ -2,29 +2,25 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirestoreDatabase {
-  //current logged in user
+  // Current logged-in user
   User? user = FirebaseAuth.instance.currentUser;
 
-  //get collectoion of posts from firebase
-
+  // Firestore collection for posts
   final CollectionReference posts =
       FirebaseFirestore.instance.collection('Posts');
 
-  //post message
-  Future<void> addPost(String message) {
+  // Add post to Firestore with optional image URL
+  Future<void> addPost(String message, {String? imageUrl}) {
     return posts.add({
-      'UserEmail': user!.email,
+      'UserEmail': user?.email ?? 'Unknown User',
       'PostMessage': message,
+      'ImagePath': imageUrl,
       'TimeStamp': Timestamp.now(),
     });
   }
 
-  //read posts from database
+  // Read posts from Firestore
   Stream<QuerySnapshot> getPostsStream() {
-    final postsStream = FirebaseFirestore.instance
-        .collection('Posts')
-        .orderBy('TimeStamp', descending: true)
-        .snapshots();
-    return postsStream;
+    return posts.orderBy('TimeStamp', descending: true).snapshots();
   }
 }
